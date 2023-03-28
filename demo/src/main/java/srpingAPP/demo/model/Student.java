@@ -14,17 +14,13 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name="students")
 @Data
 @AllArgsConstructor(staticName="build")
 @NoArgsConstructor
-@Getter
-@Setter
 public class Student {
 	
 	@Id
@@ -35,6 +31,7 @@ public class Student {
 	private String name;
 	@NotBlank
 	@NotNull(message = "Group is mandatory")
+	@Column(name="`group`")
 	private String group;
 	private Integer age;
 	

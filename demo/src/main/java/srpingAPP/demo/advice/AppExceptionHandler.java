@@ -1,4 +1,4 @@
-package exceptions;
+package srpingAPP.demo.advice;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,14 +20,14 @@ public class AppExceptionHandler {
 		e.getBindingResult().getFieldErrors().forEach(error ->{
 			errorMap.put(error.getField(), error.getDefaultMessage());
 		});
-		
+
 		return errorMap;
 	}
-	
 	
 	@ResponseStatus(HttpStatus.NOT_FOUND)
 	@ExceptionHandler(NoHandlerFoundException.class)
 	public String handleInvalidPath(NoHandlerFoundException e){
 		return "This URL dosent exists";
 	}
+	
 }

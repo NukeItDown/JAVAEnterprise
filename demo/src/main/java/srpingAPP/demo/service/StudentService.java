@@ -16,11 +16,11 @@ public class StudentService {
 	@Autowired
 	private StudentRepository repoStudent;
 	
-	public Student saveStudent(StudentRequest studentRequest) {
-		System.out.println(studentRequest.getName());
-		//Student student = new Student(studentRequest.get)
-		return null;
-		//return repoStudent.save(student);
+	public Student saveStudent(StudentRequest studentRequest){
+		System.out.println(studentRequest.getName()+","+ studentRequest.getGroup()+","+ studentRequest.getAge()+","+studentRequest.getB_day()+","+studentRequest.getUid());
+		Student student = Student.build(0,studentRequest.getName(), studentRequest.getGroup(), studentRequest.getAge(),studentRequest.getB_day(), studentRequest.getUid());
+		System.out.println(student);
+		return repoStudent.save(student);
 	}
 	
 	public List<Student> getAllStudents(){
